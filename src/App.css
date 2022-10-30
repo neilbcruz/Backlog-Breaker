@@ -1,38 +1,203 @@
-.App {
-  text-align: center;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a:link,
+a:visited {
+  color: #227396;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a:hover,
+a:active {
+  color: #2a8cb7;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+input,
+textarea {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.app {
+  width: 75%;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+
+.header__banner {
+  width: 100%;
+  height: 5rem;
+  background-image: linear-gradient(45deg, hsl(240deg, 100%, 20%) 0%, hsl(293deg, 82%, 19%) 20%, hsl(329deg, 60%, 30%) 29%, hsl(355deg, 50%, 42%) 36%, hsl(13deg, 63%, 48%) 43%, hsl(26deg, 100%, 46%) 50%, hsl(32deg, 100%, 47%) 57%, hsl(38deg, 100%, 48%) 64%, hsl(44deg, 100%, 49%) 71%, hsl(49deg, 100%, 50%) 80%, hsl(55deg, 100%, 50%) 100%);
+}
+.header__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 2px solid #e49273;
+}
+.header__logo {
+  text-decoration: none;
+}
+.header__logo:link, .header__logo:visited {
+  color: #2b4570;
+  font-size: 1.25rem;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 3px;
+}
+.header__nav {
+  display: flex;
+  gap: 1.5rem;
+}
+.header__nav-link--active:link, .header__nav-link--active:visited {
+  color: #e49273;
+  text-decoration: none;
+}
+
+.button, .post-form__submit, .logout-button, .login-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.9rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+.button > svg, .post-form__submit > svg, .logout-button > svg, .login-button > svg {
+  width: 1.5rem;
+}
+
+.login-button {
+  background-color: #f1f8f3;
+}
+.login-button:hover {
+  background-color: #e4f1e8;
+}
+
+.logout-button {
+  background-color: #fcf2ee;
+}
+.logout-button:hover {
+  background-color: #f9e4dc;
+}
+
+.profile-page__avatar {
+  width: 12rem;
+  padding: 0.5rem;
+  background-color: #e4f1e8;
+}
+.profile-page__logout-wrapper {
+  margin-top: 2rem;
+}
+
+.posts-page {
+  position: relative;
+  padding-bottom: 175px;
+}
+
+.create-post {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 75%;
+  left: 12.5%;
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 0.25rem 1rem 1rem 1rem;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
 }
 
-.App-link {
-  color: #61dafb;
+.post-form {
+  width: 100%;
+  position: relative;
+  margin-bottom: -0.5rem;
+}
+.post-form__fields {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+}
+.post-form__field {
+  margin-bottom: 1rem;
+  width: 50%;
+}
+.post-form #postTitle,
+.post-form #postContent {
+  width: 100%;
+}
+.post-form #postContent {
+  height: 6rem;
+}
+.post-form__label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.post-form__submit {
+  position: absolute;
+  bottom: 1.3rem;
+  cursor: pointer;
+  background-color: #f1f8f3;
+  color: #227396;
+}
+.post-form__submit:hover {
+  background-color: #e4f1e8;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.post {
+  margin-bottom: 3rem;
+  border-bottom: 2px solid #fcf2ee;
 }
+.post__title {
+  font-size: 1.2rem;
+  color: #a37a74;
+}
+.post__details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.post__author {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: #666;
+}
+.post__avatar {
+  height: 1.5rem;
+}
+.post__username {
+  margin: 0;
+  font-size: 0.8rem;
+}
+.post__owned {
+  font-size: 0.75rem;
+  margin-left: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  background-color: #e4f1e8;
+}
+.post__published {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #666;
+}/*# sourceMappingURL=App.css.map */

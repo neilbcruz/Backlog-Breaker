@@ -1,0 +1,49 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    // background: rgb(134, 101, 224);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        // padding-left: calc(15vw - 100px);
+        padding: 1rem 1.5rem;
+        // padding-right: calc(15vw - 100px);
+        // padding-bottom: 60px;
+    }
+
+    &__title {
+        height: 100px;
+        // display:flex;
+        // align-items: center;
+        text-align: center;
+
+        &-logo {
+            max-height: 100px;
+
+        }
+    }
+
+    &__nav {
+        display: flex;
+        justify-content: center;
+
+        &-text {
+            border: none;
+            background: white;
+            cursor: pointer;
+        }
+    }
+}
