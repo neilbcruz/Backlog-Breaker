@@ -1,10 +1,14 @@
-# Getting Started with Create React App
+# Backlog Breaker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created by Neil Cruz from Web Development Program at BrainStation.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+Search for games and add to collection of you backlog games.
+
+## Server Side Link
+
+https://github.com/neilbcruz/Backlog-Breaker-server
 
 ### `npm start`
 
