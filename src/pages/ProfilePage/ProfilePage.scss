@@ -1,0 +1,86 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.login {
+    padding: 1rem;
+    text-align: center;
+
+    &__nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+
+    &-text {
+                border: none;
+                cursor: pointer;
+            }
+    }
+}
+
+// &__nav {
+//     display: flex;
+//     justify-content: center;
+//     gap: 1.5rem;
+
+//     
+
+.profile {
+    padding: 1rem;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        padding: 1rem 0rem;
+
+    }
+
+    &__container {
+        border: 1px solid $sec-color-1;
+        border-radius: 1rem;
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__info {
+
+        display: flex;
+
+        & img {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 0.25rem;
+            object-fit: cover;
+        }
+
+        & p {
+            font-size: 1rem;
+        }
+
+        &-more {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0.5rem;
+            width: 100%;
+        }
+
+        &-edit {
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+    }
+
+}
+
+.dark {
+    border-color: white;
+}
