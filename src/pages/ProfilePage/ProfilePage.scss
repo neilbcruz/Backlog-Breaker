@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 
-.login {
+.message {
     padding: 1rem;
     text-align: center;
 
@@ -22,14 +22,7 @@
                 cursor: pointer;
             }
     }
-}
-
-// &__nav {
-//     display: flex;
-//     justify-content: center;
-//     gap: 1.5rem;
-
-//     
+}    
 
 .profile {
     padding: 1rem;
@@ -38,7 +31,7 @@
         display: flex;
         align-items: center;
         padding: 1rem 0rem;
-
+        justify-content: space-between;
     }
 
     &__container {
@@ -75,8 +68,6 @@
             display: flex;
             justify-content: space-between;
         }
-
-
     }
 
 }

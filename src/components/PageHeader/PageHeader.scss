@@ -10,14 +10,23 @@
 
 .dark {
     background-color: #000814;
-    color: #fff;
+    color: $prim-color-2;
     transition: all 0.5s;
-  }
-  .light {
+
+    & input {
+        color: $sec-color-1;
+    }
+}
+
+.light {
     background-color: #fff;
-    color: #333;
+    color: $sec-color-1;
     transition: all 0.5s;
-  }
+
+    & input {
+        color: $sec-color-1;
+    }
+}
 
 .header {
     display: flex;
@@ -25,35 +34,31 @@
     flex-direction: column;
     padding: 0rem 1rem 1rem;
 
-    // @include tablet {
-    //     flex-direction: row;
-    //     justify-content: space-between;
-    //     // padding-left: calc(15vw - 100px);
-    //     padding: 1rem 1.5rem;
-    //     // padding-right: calc(15vw - 100px);
-    //     // padding-bottom: 60px;
-    // }
-
     &__top {
         display: flex;
         justify-content: space-between;
         width: 100%;
-        padding: 1rem;
+        padding: 1rem 0rem;
         align-items: center;
-    }
 
-    &__sign {
-        gap: 2px;
+        @include tablet {
+            padding: 1rem 2rem;
+        }
+
+        @include desktop {
+            padding: 1rem 10rem;
+        }
     }
 
     &__button {
         width: 50px;
-        border: 1px solid
+        border: 1px solid;
+        border-radius: 1rem;
     }
 
     &__title {
         height: 50px;
-        display:flex;
+        display: flex;
         align-items: center;
         text-align: center;
 

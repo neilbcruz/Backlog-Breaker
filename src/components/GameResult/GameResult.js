@@ -45,6 +45,7 @@ export default function GameResult({ gameResults }) {
         console.log(err);
       })
   }
+  
   return (
     <div className="results__container">
       <ul>

@@ -3,6 +3,7 @@ import axios from "axios";
 import UploadImage from '../../components/UploadImage/UploadImage';
 import './ProfilePage.scss';
 import { NavLink } from "react-router-dom";
+import LoginPage from '../../components/LoginPage/LoginPage';
 
 const gamesUrl = 'http://localhost:8080/games/'
 const profileUrl = 'http://localhost:8080/profile'
@@ -12,6 +13,12 @@ export default function Profile({ theme }) {
 
   const [isLoading, setIsLoading] = useState(true);
   const [userInfo, setUserInfo] = useState({});
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(
+    !!sessionStorage.bearerToken
+  );
+  const reload = () => {
+    window.location.reload()
+  }
 
   useEffect(() => {
     const token = sessionStorage.getItem('JWTtoken');
@@ -33,8 +40,10 @@ export default function Profile({ theme }) {
 
   }, []);
 
-  const reload = () => {
-    window.location.reload()
+  const logOut = () => {
+    sessionStorage.removeItem('JWTtoken');
+    setIsUserLoggedIn(false);
+    reload();
   }
 
   useEffect(() => {
@@ -100,26 +109,26 @@ export default function Profile({ theme }) {
 
   }
 
-  return (isLoading ?
-    <div className='login'>
-      <h1 className='login__text'>Hello! Please Register/Login!</h1>
-      <div className='login__nav'>
-        <NavLink to='/signin'>
-          <button className={`login__nav-text ${theme}`}>Sign In</button>
+  return (isUserLoggedIn ?
+    <div className='message'>
+      <h1 className='message__text'>Hello! Please Register/Login!</h1>
+      <div className='message__nav'>
+        <NavLink to='/login'>
+          <button className={`message__nav-text ${theme}`}>Log In</button>
         </NavLink>
         <NavLink to='/register'>
-          <button className={`login__nav-text ${theme}`}>Register</button>
+          <button className={`message__nav-text ${theme}`}>Register</button>
         </NavLink>
       </div>
-
     </div>
-
-
     :
     <header className='profile'>
       <div className='profile__header'>
-        <UploadImage className='profile__header-pic' />
+        {/* <UploadImage className='profile__header-pic' /> */}
         <h1 className='profile__header-name'>{userInfo.name}</h1>
+        <div className='profile__logout'>
+          {isUserLoggedIn ? <></> : <button className={`profile__logout-text ${theme}`} onClick={logOut}>Log Out</button>}
+        </div>
       </div>
       {
         game
@@ -134,9 +143,9 @@ export default function Profile({ theme }) {
                   <div className='profile__info-more'>
                     <p className='profile__info-status'>Status: {games.status}</p>
                     <div className='profile__info-edit'>
-                      <button onClick={() => activeStatus(games, games.id)} className='profile__info-active'>Active</button>
-                      <button onClick={() => finishStatus(games, games.id)} className='profile__info-finish'>Finish</button>
-                      <button onClick={() => handleDelete(games, games.id)} className='profile__info-delete'>Delete</button>
+                      <button onClick={() => activeStatus(games, games.id)} className={`profile__info-active ${theme}`}>Active</button>
+                      <button onClick={() => finishStatus(games, games.id)} className={`profile__info-active ${theme}`}>Finish</button>
+                      <button onClick={() => handleDelete(games, games.id)} className={`profile__info-active ${theme}`}>Delete</button>
                     </div>
                   </div>
                 </div>

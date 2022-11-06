@@ -1,8 +1,9 @@
 @use "./variables" as *;
 @use "./mixins" as *;
+@use "./typography" as *;
 
 * {
-    font-family: "Titillium Web", sans-serif;
+    font-family: "Quicksand", sans-serif;
     // color: $prim-color-1;
 }
 

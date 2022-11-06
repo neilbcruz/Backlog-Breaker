@@ -4,7 +4,7 @@ import './VideoGamesPage.scss';
 
 const apiKey = `7e7ac04c09504338812a93a4b141d292`
 
-export default function VideoGamesPage() {
+export default function VideoGamesPage({ theme }) {
 
   const [searchGame, setSearchGame] = useState("");
   const [gameResults, setGameResults] = useState([]);
@@ -38,11 +38,10 @@ export default function VideoGamesPage() {
 
   return (
     <div className="search">
-
       <form className='search__form' onSubmit={onSubmit}>
         <label className='search__label' htmlFor='search'>Search</label>
         <input
-          className='search__input'
+          className={`search__input ${theme}`}
           type="text"
           name='search'
           value={searchGame}
