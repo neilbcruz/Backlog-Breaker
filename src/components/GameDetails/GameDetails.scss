@@ -1,0 +1,73 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.details {
+    // border: 1px solid $sec-color-1;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+
+    &__name {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        & img {
+            width: 50px;
+        }
+    }
+
+    &__info {
+        display: flex;
+        padding: 1rem 0rem;
+
+        & img {
+            width: auto;
+            max-width: 10rem;
+            // height: 5rem;
+            border-radius: 0.25rem;
+            object-fit: cover;
+            &:hover {
+                -webkit-transform:scale(1.5); /* or some other value */
+                transform:scale(2);
+            }
+        }
+
+        &-more {
+            padding: 0rem 1rem;
+        }
+    }
+
+    &__screenshots {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+
+        & img {
+            width: auto;
+            border-radius: 0.25rem;
+            object-fit: cover;
+            &:hover {
+                -webkit-transform:scale(1.5); /* or some other value */
+                transform:scale(2);
+            }
+        }
+    }
+}
+
+ul {
+    img {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 0.25rem;
+        object-fit: cover;
+    }
+}

@@ -35,7 +35,7 @@ function App() {
           <Route path='/' element={<HomePage theme={theme} />} />
           <Route path='/games' element={<VideoGamesPage theme={theme} />} />
           <Route path='/profile' element={<ProfilePage theme={theme} />} />
-          <Route path='/games/:id' element={<GameDetails />} />
+          <Route path='/games/:id' element={<GameDetails theme={theme} />} />
           <Route path='/login' element={<LoginPage theme={theme} />} />
           <Route path='/register' element={<RegisterPage theme={theme} />} />
         </Routes>

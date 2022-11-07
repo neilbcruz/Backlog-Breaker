@@ -142,6 +142,7 @@ export default function Profile({ theme }) {
                   <img src={games.background_image} />
                   <div className='profile__info-more'>
                     <p className='profile__info-status'>Status: {games.status}</p>
+                    {games.description_raw}
                     <div className='profile__info-edit'>
                       <button onClick={() => activeStatus(games, games.id)} className={`profile__info-active ${theme}`}>Active</button>
                       <button onClick={() => finishStatus(games, games.id)} className={`profile__info-active ${theme}`}>Finish</button>

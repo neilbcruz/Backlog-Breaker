@@ -48,7 +48,7 @@ export default function VideoGamesPage({ theme }) {
           onChange={handleChange} />
         <button className='search__button' type='submit'>Submit</button>
       </form>
-      <GameResults gameResults={gameResults} />
+      <GameResults gameResults={gameResults} theme={theme} />
     </div>
   );
 }
