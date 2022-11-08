@@ -66,12 +66,10 @@
         padding: .5rem;
         transition: 250ms background ease-in;
         width: 100%;
+    }
 
-        &:focus {
-            background: white;
-            color: black;
-            transition: 250ms background ease-in;
-        }
+    &__button {
+        cursor: pointer;
     }
 }
 

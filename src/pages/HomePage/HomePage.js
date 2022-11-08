@@ -16,7 +16,7 @@ export default function HomePage({ theme }) {
   const addGame = async (game) => {
     // event.preventDefault();
     console.log(game)
-    const {data: gameData} = await axios.get(`https://api.rawg.io/api/games/${game.id}?key=${apiKey}`)
+    const { data: gameData } = await axios.get(`https://api.rawg.io/api/games/${game.id}?key=${apiKey}`)
 
     console.log(gameData)
 
@@ -74,11 +74,11 @@ export default function HomePage({ theme }) {
       <div className='home__header'>
         <h1>Pick A Game!</h1>
         <div className='home__start'>
-        <p>Search for specific games by clicking here: </p>
+          <p>Search for specific games by clicking here: </p>
           <NavLink to='/games'>
             <button className={`home__start-text p-small ${theme}`}>Search</button>
           </NavLink>
-          </div>
+        </div>
         <p>Or choose from must play games:</p>
         <div className='home__top'>
           {

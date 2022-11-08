@@ -13,16 +13,16 @@
     text-align: center;
 
     &__nav {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
 
-    &-text {
-                border: none;
-                cursor: pointer;
-            }
+        &-text {
+            border: none;
+            cursor: pointer;
+        }
     }
-}    
+}
 
 .profile {
     padding: 1rem;
@@ -70,8 +70,76 @@
         }
     }
 
+    &__logout {
+        &-text {
+            cursor: pointer;
+
+            &:hover,
+            &:focus {
+                background: white;
+                color: black;
+                transition: 250ms background ease-in;
+            }
+        }
+    }
+
+    &__modal {
+        width: 80vw;
+        height: 110vh;
+        top: 45%;
+        left: 35%;
+        right: auto;
+        bottom: auto;
+        margin-right: -50%;
+        transform: translate(-30%, -40%);
+        padding: 0;
+        position: absolute;
+        border-radius: 2rem;
+        border: none;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        @include tablet {
+            width: 100vw;
+            height: 100vh;
+            max-width: 500px;
+            height: auto;
+            left: 40%;
+        }
+
+        &-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+    }
+}
+
+.profile__modal.light {
+    color: white;
+    background-color: transparent;
+}
+.profile__modal.dark {
+    background-color: transparent;
 }
 
 .dark {
     border-color: white;
+}
+
+.profile__logout-text.light {
+
+    &:hover,
+    &:focus {
+        background: black;
+        color: white;
+        transition: 250ms background ease-in;
+    }
 }

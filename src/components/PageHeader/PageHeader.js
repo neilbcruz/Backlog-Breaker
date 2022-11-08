@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "./PageHeader.scss";
-// import bgtLogo from '../../assets/logo/bb_logo.png';
+import Logo from '../../assets/logo/logo-capstone.png';
 
 export default function PageHeader({ theme, toggleTheme, isClicked }) {
 
@@ -18,7 +18,9 @@ export default function PageHeader({ theme, toggleTheme, isClicked }) {
         </div>
       </div>
       <div className='header__title'>
-        {/* <img className='header__title-logo' src={bgtLogo} alt='BGT Logo' /> */}
+        <NavLink to='/'>
+          <img className='header__title-logo' src={Logo} alt='BGT Logo' />
+        </NavLink>
         <NavLink to='/'>
           <h1 className='header__title-text'>Backlogger</h1>
         </NavLink>

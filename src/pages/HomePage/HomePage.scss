@@ -16,7 +16,7 @@
     padding: 1rem;
     margin: 1rem;
     text-align: center;
-    transition: all 0.5s;
+    // transition: all 0.5s;
 
     @include tablet {
       // margin: 1rem 10rem;
@@ -54,10 +54,16 @@
     align-items: center;
 
     &-text {
-      // border: none;
       cursor: pointer;
       margin-left: 1rem;
       padding: 2px;
+
+      &:hover,
+      &:focus {
+        background: white;
+        color: black;
+        transition: 250ms background ease-in;
+      }
     }
   }
 
@@ -96,10 +102,23 @@
         width: 100%;
         aspect-ratio: 16 / 9;
       }
+
+      & button {
+        cursor: pointer;
+      }
     }
   }
 }
 
 .home__top-text.light {
   background-color: $support-color-1;
+}
+
+.home__start-text.light {
+  &:hover,
+  &:focus {
+    background: black;
+    color: white;
+    transition: 250ms background ease-in;
+  }
 }

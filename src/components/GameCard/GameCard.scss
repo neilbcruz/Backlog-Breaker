@@ -10,10 +10,10 @@
 
 .results {
     &__modal {
-        width: 100vw;
-        height: 100vh;
+        width: 80vw;
+        height: 110vh;
         top: 45%;
-        left: 50%;
+        left: 35%;
         right: auto;
         bottom: auto;
         margin-right: -50%;
@@ -22,8 +22,16 @@
         position: absolute;
         border-radius: 2rem;
         border: none;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+          }
+          
     
         @include tablet {
+            width: 100vw;
+            height: 100vh;
             max-width: 500px;
             height: auto;
             left: 40%;

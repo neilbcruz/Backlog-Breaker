@@ -3,9 +3,9 @@
 @use "../../styles/partials/fonts" as *;
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .details {
@@ -20,7 +20,7 @@
         justify-content: space-between;
 
         & img {
-            width: 50px;
+            width: 60px;
         }
     }
 
@@ -34,10 +34,10 @@
             // height: 5rem;
             border-radius: 0.25rem;
             object-fit: cover;
-            &:hover {
-                -webkit-transform:scale(1.5); /* or some other value */
-                transform:scale(2);
-            }
+            // &:hover {
+            //     -webkit-transform:scale(1.5); /* or some other value */
+            //     transform:scale(1.5);
+            // }
         }
 
         &-more {
@@ -50,16 +50,23 @@
         justify-content: space-between;
         gap: 1rem;
         flex-wrap: wrap;
+        padding: 1rem 0rem;
 
         & img {
             width: auto;
             border-radius: 0.25rem;
             object-fit: cover;
+
             &:hover {
-                -webkit-transform:scale(1.5); /* or some other value */
-                transform:scale(2);
+                -webkit-transform: scale(1.5);
+                /* or some other value */
+                transform: scale(1.5);
             }
         }
+    }
+
+    & button {
+        cursor: pointer;
     }
 }
 

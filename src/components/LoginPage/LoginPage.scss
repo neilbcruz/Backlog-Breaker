@@ -112,6 +112,7 @@
         padding: .25rem;
         transition: 250ms background ease-in;
         box-shadow: 5px 5px 5px rgba(202, 206, 214, 0.1);
+        cursor: pointer;
 
         &:hover,
         &:focus {
@@ -150,11 +151,12 @@
     padding: .25rem;
     transition: 250ms background ease-in;
     box-shadow: 5px 5px 5px rgba(19, 24, 44, 0.1);
+    cursor: pointer;
 
     &:hover,
     &:focus {
-        background: white;
-        color: black;
+        background: black;
+        color: white;
         transition: 250ms background ease-in;
     }
 }

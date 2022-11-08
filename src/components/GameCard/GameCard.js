@@ -2,7 +2,7 @@ import './GameCard.scss';
 import { useState, useEffect } from "react";
 import { useParams, NavLink, useNavigate } from 'react-router-dom';
 import Modal from "react-modal";
-import GameDetails from '../GameDetails/GameDetails';
+import GameDetails from '../../components/GameDetails/GameDetails';
 
 export default function GameCard({ game, addGame, theme }) {
     const [modalIsOpen, setIsOpen] = useState(false);
@@ -22,12 +22,10 @@ export default function GameCard({ game, addGame, theme }) {
 
     return (<>
         <div className='results__top-container' key={game.id}>
-        <h3 className={`results__top-text ${theme}`}>{game.name}</h3>
+            <h3 className={`results__top-text ${theme}`}>{game.name}</h3>
             <img src={game.background_image} alt="game image" />
             <button onClick={() => addGame(game)}>Add Game</button>
-            {/* <NavLink to={`/games`}> */}
             <button onClick={openModal}>Info</button>
-            {/* </NavLink> */}
             <div>
                 <Modal
                     isOpen={modalIsOpen}
@@ -39,6 +37,7 @@ export default function GameCard({ game, addGame, theme }) {
                         game={game}
                         key={game.id}
                         closeModal={closeModal}
+                        addGame={addGame}
                     />
                 </Modal>
             </div>

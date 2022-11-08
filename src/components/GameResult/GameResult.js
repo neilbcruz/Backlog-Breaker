@@ -10,10 +10,6 @@ import GameCard from '../../components/GameCard/GameCard';
 const apiKey = `7e7ac04c09504338812a93a4b141d292`
 
 export default function GameResult({ gameResults, theme }) {
-
-  
-
-
   const { id } = useParams();
   // const [addGame, setAddGame] = useState([]);
   const [gameData, setGameData] = useState([]);
@@ -33,7 +29,15 @@ export default function GameResult({ gameResults, theme }) {
       background_image: gameData.background_image,
       status: "active",
       description: gameData.description,
-      description_raw: gameData.description_raw
+      description_raw: gameData.description_raw,
+      website: gameData.website,
+      metacritic_url: gameData.metacritic_url,
+      esrb_rating: gameData.esrb_rating,
+      reddit_url: gameData.reddit_url,
+      released: gameData.released,
+      rating: gameData.rating,
+      genres: gameData.genres,
+      platforms: gameData.platforms
     }
     // console.log(gameObj)
     axios
@@ -55,15 +59,6 @@ export default function GameResult({ gameResults, theme }) {
         {
           gameResults.map(game => (
             <GameCard game={game} key={game.id} theme={theme} addGame={addGame} />
-            // <li className='results__card' key={game.id}>
-            //     <h3>{game.name}</h3>
-            //     <img className='results__image' src={game.background_image} alt="game" />
-            //     <p>Release Date: {game.released}</p>
-            //     <button onClick={() => addGame(game)}>Add Game</button>
-            //     <NavLink to={`/games/${game.id}`}>
-            //       <button onClick={openModal}>Info</button>
-            //     </NavLink>
-            // </li>
           ))
         }
 

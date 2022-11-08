@@ -5,6 +5,7 @@ import PageHeader from './components/PageHeader/PageHeader';
 import VideoGamesPage from './pages/VideoGamesPage/VideoGamesPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import GameDetails from './components/GameDetails/GameDetails';
+import GameProfile from './components/GameProfile/GameProfile';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import { useState, useEffect } from 'react';
@@ -35,7 +36,8 @@ function App() {
           <Route path='/' element={<HomePage theme={theme} />} />
           <Route path='/games' element={<VideoGamesPage theme={theme} />} />
           <Route path='/profile' element={<ProfilePage theme={theme} />} />
-          <Route path='/games/:id' element={<GameDetails theme={theme} />} />
+          {/* <Route path='/hello' element={<GameDetails theme={theme} />} /> */}
+          <Route path='/games/:id' element={<GameProfile theme={theme} />} />
           <Route path='/login' element={<LoginPage theme={theme} />} />
           <Route path='/register' element={<RegisterPage theme={theme} />} />
         </Routes>

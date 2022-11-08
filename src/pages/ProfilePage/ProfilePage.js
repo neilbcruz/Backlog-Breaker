@@ -1,21 +1,25 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import UploadImage from '../../components/UploadImage/UploadImage';
 import './ProfilePage.scss';
 import { NavLink } from "react-router-dom";
 import LoginPage from '../../components/LoginPage/LoginPage';
+import Modal from "react-modal";
+import GameProfile from '../../components/GameProfile/GameProfile';
+
 
 const gamesUrl = 'http://localhost:8080/games/'
 const profileUrl = 'http://localhost:8080/profile'
 
 export default function Profile({ theme }) {
   const [game, setGame] = useState([]);
-
+  const [selectedGame, setSelectedGame] = useState(null)
   const [isLoading, setIsLoading] = useState(true);
   const [userInfo, setUserInfo] = useState({});
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(
     !!sessionStorage.bearerToken
   );
+
+  // User Login Functions //
   const reload = () => {
     window.location.reload()
   }
@@ -36,8 +40,6 @@ export default function Profile({ theme }) {
         setIsLoading(false);
         setUserInfo({ name: response.data.username });
       });
-
-
   }, []);
 
   const logOut = () => {
@@ -46,6 +48,7 @@ export default function Profile({ theme }) {
     reload();
   }
 
+  // Game Functions //
   useEffect(() => {
     axios.get(gamesUrl)
       .then((resp) => {
@@ -98,18 +101,32 @@ export default function Profile({ theme }) {
     reload()
   }
 
-
-
   const handleDelete = async (games, id) => {
     axios.delete(`http://localhost:8080/games/${id}`)
     // closeModal()
     // alert('Game deleted');
     // navigate('/profile')
     reload()
-
   }
 
-  return (isUserLoggedIn ?
+  function selectAnOpenModal(game) {
+    setSelectedGame(game)
+    setIsOpen(true)
+  }
+
+  // Modal Functions //
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  // const navigate = useNavigate();
+
+  function closeModal() {
+    setIsOpen(false);
+    // navigate('/games')
+  }
+  // console.log(gameResults)
+  Modal.setAppElement('body');
+
+  return (!!isUserLoggedIn ?
     <div className='message'>
       <h1 className='message__text'>Hello! Please Register/Login!</h1>
       <div className='message__nav'>
@@ -124,7 +141,6 @@ export default function Profile({ theme }) {
     :
     <header className='profile'>
       <div className='profile__header'>
-        {/* <UploadImage className='profile__header-pic' /> */}
         <h1 className='profile__header-name'>{userInfo.name}</h1>
         <div className='profile__logout'>
           {isUserLoggedIn ? <></> : <button className={`profile__logout-text ${theme}`} onClick={logOut}>Log Out</button>}
@@ -132,6 +148,7 @@ export default function Profile({ theme }) {
       </div>
       {
         game
+          .sort((a, b) => a.status > b.status ? 1 : -1)
           .map((games) => {
             return (
               <div className={`profile__container ${theme}`} key={games.id}>
@@ -142,25 +159,32 @@ export default function Profile({ theme }) {
                   <img src={games.background_image} />
                   <div className='profile__info-more'>
                     <p className='profile__info-status'>Status: {games.status}</p>
-                    {games.description_raw}
                     <div className='profile__info-edit'>
                       <button onClick={() => activeStatus(games, games.id)} className={`profile__info-active ${theme}`}>Active</button>
                       <button onClick={() => finishStatus(games, games.id)} className={`profile__info-active ${theme}`}>Finish</button>
                       <button onClick={() => handleDelete(games, games.id)} className={`profile__info-active ${theme}`}>Delete</button>
                     </div>
+                    <button onClick={() => selectAnOpenModal(games)}>Info</button>
                   </div>
                 </div>
               </div>
             )
           })
       }
+      <div>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          className={`profile__modal ${theme}`}
+          overlayClassName='profile__modal-overlay'
+        >
+          {selectedGame && <GameProfile
+            games={selectedGame}
+            closeModal={closeModal}
+          />}
+        </Modal>
+      </div>
     </header>
+
   );
 }
-
-// Profile Page after Signing in //
-// export default function Profile() {
-
-
-//   return isLoading ? <h1>Loading...</h1> : <h1>Welcome {userInfo.name}!</h1>;
-// }
