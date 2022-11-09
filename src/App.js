@@ -4,7 +4,6 @@ import HomePage from './pages/HomePage/HomePage';
 import PageHeader from './components/PageHeader/PageHeader';
 import VideoGamesPage from './pages/VideoGamesPage/VideoGamesPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
-import GameDetails from './components/GameDetails/GameDetails';
 import GameProfile from './components/GameProfile/GameProfile';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';

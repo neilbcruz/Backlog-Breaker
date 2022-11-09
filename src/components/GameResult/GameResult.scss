@@ -19,7 +19,7 @@
     &-text {
       display: flex;
       align-items: center;
-      justify-content: center;      
+      justify-content: center;
     }
 
     &-container {
@@ -27,12 +27,10 @@
       margin: 1rem 0rem 1rem;
       display: flex;
       flex-direction: column;
-      // border: 1px solid white;
 
       @include tablet {
         padding: 0rem 0.25rem;
         width: 33%;
-        // height: 10rem;
       }
 
       & h3 {

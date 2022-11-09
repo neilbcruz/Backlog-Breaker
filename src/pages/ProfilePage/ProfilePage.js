@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import './ProfilePage.scss';
-import { useParams, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import ActiveStatus from '../../components/ActiveStatus/ActiveStatus';
 import FinishStatus from '../../components/FinishStatus/FinishStatus';
 
@@ -11,8 +11,7 @@ const userUrl = 'http://localhost:8080/user/'
 
 export default function Profile({ theme }) {
   const [game, setGame] = useState([]);
-  // const [selectedGame, setSelectedGame] = useState(null)
-  const [isLoading, setIsLoading] = useState(true);
+  const [_isLoading, setIsLoading] = useState(true);
   const [userInfo, setUserInfo] = useState({});
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(
     !!sessionStorage.bearerToken
@@ -58,23 +57,6 @@ export default function Profile({ theme }) {
       })
   }, [])
 
-  // function selectAnOpenModal(game) {
-  // setSelectedGame(game)
-  //   setIsOpen(true)
-  // }
-
-  // // Modal Functions //
-  // const [modalIsOpen, setIsOpen] = useState(false);
-
-  // // const navigate = useNavigate();
-
-  // function closeModal() {
-  //   setIsOpen(false);
-  //   // navigate('/games')
-  // }
-  // // console.log(gameResults)
-  // Modal.setAppElement('body');
-
   return (!!isUserLoggedIn ?
     <div className='message'>
       <h1 className='message__text'>Hello! Please Register/Login!</h1>
@@ -118,20 +100,6 @@ export default function Profile({ theme }) {
             })
         }
       </div>
-      {/* <div>
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          className={`profile__modal ${theme}`}
-          overlayClassName='profile__modal-overlay'
-        >
-          {selectedGame && <GameProfile
-            games={selectedGame}
-            closeModal={closeModal}
-          />}
-        </Modal>
-      </div> */}
     </header>
-
   );
 }

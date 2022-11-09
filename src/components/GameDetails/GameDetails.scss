@@ -9,7 +9,6 @@
 }
 
 .details {
-    // border: 1px solid $sec-color-1;
     border-radius: 1rem;
     padding: 1rem;
     margin-bottom: 0.5rem;
@@ -31,13 +30,8 @@
         & img {
             width: auto;
             max-width: 10rem;
-            // height: 5rem;
             border-radius: 0.25rem;
             object-fit: cover;
-            // &:hover {
-            //     -webkit-transform:scale(1.5); /* or some other value */
-            //     transform:scale(1.5);
-            // }
         }
 
         &-more {

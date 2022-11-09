@@ -1,8 +1,6 @@
 import './GameProfile.scss';
-// import { useParams, NavLink } from "react-router-dom";
-// import CloseIcon from '../../assets/icons/close-icon-2.webp';
 import { useState, useEffect } from "react";
-import { useParams, useNavigate, NavLink } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import axios from "axios";
 import DeleteModal from '../../components/DeleteModal/DeleteModal';
@@ -30,7 +28,6 @@ export default function GameProfile({ theme }) {
 
   // FUNCTION //
   const activeStatus = async (game, id) => {
-    console.log(game)
 
     const toActive = {
       id: game.id,
@@ -52,7 +49,6 @@ export default function GameProfile({ theme }) {
     axios
       .patch(`${profileUrl}${id}`, toActive)
       .then((toActive) => {
-        console.log(toActive);
         navigate('/profile')
         reload();
       })
@@ -62,7 +58,6 @@ export default function GameProfile({ theme }) {
   }
 
   const finishStatus = async (game, id) => {
-    console.log(game)
 
     const toFinish = {
       id: game.id,
@@ -84,7 +79,6 @@ export default function GameProfile({ theme }) {
     axios
       .patch(`${profileUrl}${id}`, toFinish)
       .then((toFinish) => {
-        console.log(toFinish);
         navigate('/profile');
         reload();
       })
@@ -93,13 +87,6 @@ export default function GameProfile({ theme }) {
       })
   }
 
-  // const handleDelete = async (game, id) => {
-  //   axios.delete(`${profileUrl}${id}`)
-  //   // closeModal()
-  //   // alert('Game deleted');
-  //   // navigate('/profile')
-  // }
-  //
 
   // GET GAME //
   useEffect(() => {
@@ -112,7 +99,6 @@ export default function GameProfile({ theme }) {
         console.log(err)
       })
   }, [id])
-  //
 
   // MODAL //
   function selectAnOpenModal(game) {
@@ -122,13 +108,10 @@ export default function GameProfile({ theme }) {
 
   const [modalIsOpen, setIsOpen] = useState(false);
 
-  // const navigate = useNavigate();
-
   function closeModal() {
     setIsOpen(false);
-    // navigate('/game')
   }
-  // console.log(gameResults)
+
   Modal.setAppElement('body');
 
   return (
@@ -161,7 +144,6 @@ export default function GameProfile({ theme }) {
           <button onClick={() => activeStatus(game, game.id)} className={`gameprofile__button-active ${theme}`}>Active</button>
           <button onClick={() => finishStatus(game, game.id)} className={`gameprofile__button-active ${theme}`}>Finish</button>
           <button
-            // onClick={() => handleDelete(game, game.id)} 
             onClick={() => selectAnOpenModal(game)}
             className={`gameprofile__info-active ${theme}`}>Delete</button>
         </div>
@@ -181,7 +163,7 @@ export default function GameProfile({ theme }) {
           </div>
           <div className='gameprofile__other-link'>
             <h3>Metacritic</h3>
-            {game.metacritic_url === '' ? <p className='gameprofile__other-text'>n/a</p> : 
+            {game.metacritic_url === '' ? <p className='gameprofile__other-text'>n/a</p> :
               <img onClick={() => newTab(game.metacritic_url)} src={MetacriticLogo} />
             }
           </div>

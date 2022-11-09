@@ -3,9 +3,9 @@
 @use "../../styles/partials/fonts" as *;
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .results {
@@ -26,9 +26,9 @@
 
         &::-webkit-scrollbar {
             display: none;
-          }
-          
-    
+        }
+
+
         @include tablet {
             width: 100vw;
             height: 100vh;

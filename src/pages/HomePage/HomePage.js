@@ -11,10 +11,9 @@ export default function HomePage({ theme }) {
   }, [])
 
   const [games, setGames] = useState([])
-  const [gameData, setGameData] = useState([]);
+  const [_gameData, setGameData] = useState([]);
 
   const addGame = async (game) => {
-    // event.preventDefault();
     console.log(game)
     const { data: gameData } = await axios.get(`https://api.rawg.io/api/games/${game.id}?key=${apiKey}`)
 
@@ -30,7 +29,6 @@ export default function HomePage({ theme }) {
       description: gameData.description,
       description_raw: gameData.description_raw
     }
-    // console.log(gameObj)
     axios
       .post('http://localhost:8080/games/', gameObj)
       .then((resp) => {

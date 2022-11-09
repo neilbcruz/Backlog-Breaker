@@ -1,6 +1,5 @@
 import './GameCard.scss';
-import { useState, useEffect } from "react";
-import { useParams, NavLink, useNavigate } from 'react-router-dom';
+import { useState } from "react";
 import Modal from "react-modal";
 import GameDetails from '../../components/GameDetails/GameDetails';
 
@@ -11,13 +10,10 @@ export default function GameCard({ game, addGame, theme }) {
         setIsOpen(true);
     }
 
-    // const navigate = useNavigate();
-
     function closeModal() {
         setIsOpen(false);
-        // navigate('/games')
     }
-    // console.log(gameResults)
+
     Modal.setAppElement(".App");
 
     return (<>

@@ -8,21 +8,21 @@
   box-sizing: border-box;
 }
 
-.finish__status{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.finish__status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    &-text {
-        background-color: rgba(2021,69,21,0.07);
-        color: $support-color-2;
-        border: none;
-        border-radius: 20px;
-        width: 4.925rem;
-        font-size: 1rem;
-        color: green;
-        font-weight: 500;
-        margin-left: 0.25rem;
-    }
+  &-text {
+    background-color: rgba(2021, 69, 21, 0.07);
+    color: $support-color-2;
+    border: none;
+    border-radius: 20px;
+    width: 5.75rem;
+    font-size: 1rem;
+    color: green;
+    font-weight: 600;
+    margin-left: 0.25rem;
+  }
 
 }

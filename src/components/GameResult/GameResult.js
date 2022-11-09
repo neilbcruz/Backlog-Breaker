@@ -1,26 +1,17 @@
 import React from 'react';
-import { useParams, NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './GameResult.scss';
-import { useState, useEffect } from "react";
-import Modal from "react-modal";
-import GameDetails from '../GameDetails/GameDetails';
+import { useState } from "react";
 import GameCard from '../../components/GameCard/GameCard';
 
 const apiKey = `7e7ac04c09504338812a93a4b141d292`
 
 export default function GameResult({ gameResults, theme, loading }) {
-  const { id } = useParams();
   // const [addGame, setAddGame] = useState([]);
-  const [gameData, setGameData] = useState([]);
+  const [_gameData, setGameData] = useState([]);
 
   const addGame = async (game) => {
-    // event.preventDefault();
-    const {data: gameData} = await axios.get(`https://api.rawg.io/api/games/${game.id}?key=${apiKey}`)
-
-    console.log(gameData)
-
-    console.log(game.id.toString())
+    const { data: gameData } = await axios.get(`https://api.rawg.io/api/games/${game.id}?key=${apiKey}`)
 
     const gameObj = {
       id: game.id.toString(),
@@ -38,12 +29,11 @@ export default function GameResult({ gameResults, theme, loading }) {
       genres: gameData.genres,
       platforms: gameData.platforms
     }
-    // console.log(gameObj)
+
     axios
       .post('http://localhost:8080/games/', gameObj)
       .then((resp) => {
         setGameData(resp.data)
-        console.log(resp.data)
         alert(`Added ${gameData.name}`)
       })
       .catch((err) => {
@@ -51,14 +41,13 @@ export default function GameResult({ gameResults, theme, loading }) {
       })
   }
 
-  return ( loading ? <h1>Loading...</h1> : 
+  return (loading ? <h1>Loading...</h1> :
     <div className="results__top">
-        {
-          gameResults.map(game => (
-            <GameCard game={game} key={game.id} theme={theme} addGame={addGame} />
-          ))
-        }
-
+      {
+        gameResults.map(game => (
+          <GameCard game={game} key={game.id} theme={theme} addGame={addGame} />
+        ))
+      }
     </div>
   );
 }

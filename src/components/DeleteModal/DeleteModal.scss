@@ -26,15 +26,12 @@
         justify-content: space-between;
     }
 
-
     &__img {
         width: 14px;
         height: 14px;
         position: absolute;
         top: 21px;
         right: 21px;
-
-
     }
 
     &__content {
@@ -54,12 +51,10 @@
             color: white;
             background-color: transparent;
             border: none;
-
         }
 
         &-delete {
             border: 1px solid #BDC5D5;
-            // background-color: white;
 
             &:hover,
             &:focus {
@@ -89,9 +84,9 @@
     border: 1px solid black;
 
     &:hover,
-            &:focus {
-                background: black;
-                color: white;
-                transition: 250ms background ease-in;
-            }
+    &:focus {
+        background: black;
+        color: white;
+        transition: 250ms background ease-in;
+    }
 }

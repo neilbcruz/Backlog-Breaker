@@ -17,32 +17,17 @@
     transition: all 0.5s;
 
     @include tablet {
-        // margin: 1rem 10rem;
         flex-direction: row;
         justify-content: space-between;
         padding: 1rem 2rem;
         margin: 2rem;
-        // padding: 1rem 0rem;
-        // padding-right: calc(15vw - 100px);
-        // padding-left: calc(15vw - 100px);
-        // // padding-bottom: 60px;
-        // margin: 1rem 2rem;
-        // margin-right: calc(30vw - 100px);
-        // margin-left: calc(30vw - 100px);
     }
 
     @include desktop {
-        // margin: 1rem 10rem;
         flex-direction: row;
         justify-content: space-between;
         padding: 1rem 2rem;
         margin: 2rem 10rem;
-        //   padding-right: calc(15vw - 160px);
-        //   padding-left: calc(15vw - 160px);
-        //   // padding-bottom: 60px;
-        //   margin: 1rem 2rem;
-        //   margin-right: calc(30vw - 10px);
-        //   margin-left: calc(30vw - 10px);
     }
 
     &__name {
@@ -67,13 +52,8 @@
         & img {
             width: auto;
             max-width: 10rem;
-            // height: 5rem;
             border-radius: 0.25rem;
             object-fit: cover;
-            // &:hover {
-            //     -webkit-transform:scale(1.5); /* or some other value */
-            //     transform:scale(1.5);
-            // }
         }
 
         &-more {
@@ -120,7 +100,6 @@
             display: none;
         }
 
-
         @include tablet {
             width: 100vw;
             left: 40%;
@@ -141,7 +120,6 @@
         display: flex;
         padding: 1rem 0rem 1rem;
         justify-content: space-between;
-        
 
         @include tablet {
             padding: 1rem 6rem 1rem;
@@ -155,7 +133,6 @@
 
         &-text {
             margin-top: 1rem;
-
         }
 
         & img {
@@ -163,13 +140,10 @@
             height: 3rem;
             border-radius: 6.25rem;
             object-fit: cover;
-            // object-position: 0rem;
             background: #E1E1E1;
             margin: 0.5rem;
-            // border: 1px solid $sec-color-3;
             cursor: pointer;
         }
-
     }
 }
 

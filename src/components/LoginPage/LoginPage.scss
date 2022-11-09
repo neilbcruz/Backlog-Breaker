@@ -16,26 +16,22 @@
     margin: 1rem 3rem;
 
     @include tablet {
-        // margin: 1rem 10rem;
         flex-direction: row;
         justify-content: space-between;
         padding: 1rem 0rem;
         padding-right: calc(15vw - 100px);
         padding-left: calc(15vw - 100px);
-        // padding-bottom: 60px;
         margin: 1rem 2rem;
         margin-right: calc(30vw - 100px);
         margin-left: calc(30vw - 100px);
     }
 
     @include desktop {
-        // margin: 1rem 10rem;
         flex-direction: row;
         justify-content: space-between;
         padding: 1rem 0rem;
         padding-right: calc(15vw - 200px);
         padding-left: calc(15vw - 200px);
-        // padding-bottom: 60px;
         margin: 1rem 2rem;
         margin-right: calc(30vw - 10px);
         margin-left: calc(30vw - 10px);
@@ -200,20 +196,17 @@
         padding: 1rem 0rem;
         padding-right: calc(15vw - 100px);
         padding-left: calc(15vw - 100px);
-        // padding-bottom: 60px;
         margin: 1rem 2rem;
         margin-right: calc(30vw - 100px);
         margin-left: calc(30vw - 100px);
     }
 
     @include desktop {
-        // margin: 1rem 10rem;
         flex-direction: row;
         justify-content: space-between;
         padding: 1rem 0rem;
         padding-right: calc(15vw - 200px);
         padding-left: calc(15vw - 200px);
-        // padding-bottom: 60px;
         margin: 1rem 2rem;
         margin-right: calc(30vw - 10px);
         margin-left: calc(30vw - 10px);

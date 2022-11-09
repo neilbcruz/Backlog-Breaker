@@ -35,68 +35,6 @@ export default function LoginPage({ theme }) {
     }
   };
 
-  // const handleLogin = (e) => {
-  //   e.preventDefault();
-
-  //   axios.post(loginUrl, {
-  //     username: e.target.username.value,
-  //     password: e.target.password.value
-  //   })
-  //     .then((response) => {
-  //       sessionStorage.setItem('JWTtoken', response.data.token);
-
-  //       setIsLoggedIn(true);
-  //       setIsLoginError(false);
-  //       setErrorMessage("");
-  //     })
-  //     .catch((error) => {
-  //       setIsLoginError(true);
-  //       setErrorMessage(error.response.data.error.message);
-  //     });
-  // };
-
-  // const renderRegister = () => (
-  //   <div>
-  //     <h1>Register</h1>
-  //     <form onSubmit={handleRegister}>
-  //       <div className="form-group">
-  //         Username: <input type="text" name="username" />
-  //       </div>
-  //       <div className="form-group">
-  //         Name: <input type="text" name="name" />
-  //       </div>
-  //       <div className="form-group">
-  //         Password: <input type="password" name="password" />
-  //       </div>
-  //       <button className="btn btn-primary" type="submit">
-  //         Register
-  //       </button>
-  //     </form>
-  //   </div>
-  // );
-
-  // const renderLogin = () => (
-  //   <div>
-  //     <h1>Login</h1>
-  //     {isLoginError && <label style={{ color: "red" }}>{errorMessage}</label>}
-  //     <form onSubmit={handleLogin}>
-  //       <div className="form-group">
-  //         Username: <input type="text" name="username" />
-  //       </div>
-  //       <div className="form-group">
-  //         Password: <input type="password" name="password" />
-  //       </div>
-  //       <button className="btn btn-primary" type="submit">
-  //         Login
-  //       </button>
-  //     </form>
-  //   </div>
-  // );
-
-  // Handle the Signup/Login
-  // if (!isRegistered) return renderRegister();
-  // if (!isLoggedIn) return renderLogin();
-
   return (
     <div className={`login ${theme}`}>
       <h2 className='login__text'>Register</h2>

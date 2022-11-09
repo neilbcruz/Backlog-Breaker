@@ -1,5 +1,5 @@
 import './GameDetails.scss';
-import { useParams, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import CloseIcon from '../../assets/icons/close-icon-2.webp'
 
 export default function GameDetails({ game, closeModal, addGame, key }) {

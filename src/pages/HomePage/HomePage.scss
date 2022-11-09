@@ -16,35 +16,19 @@
     padding: 1rem;
     margin: 1rem;
     text-align: center;
-    // transition: all 0.5s;
 
     @include tablet {
-      // margin: 1rem 10rem;
       flex-direction: row;
       justify-content: space-between;
       padding: 1rem 2rem;
       margin: 2rem;
-      // padding: 1rem 0rem;
-      // padding-right: calc(15vw - 100px);
-      // padding-left: calc(15vw - 100px);
-      // // padding-bottom: 60px;
-      // margin: 1rem 2rem;
-      // margin-right: calc(30vw - 100px);
-      // margin-left: calc(30vw - 100px);
     }
 
     @include desktop {
-      // margin: 1rem 10rem;
       flex-direction: row;
       justify-content: space-between;
       padding: 1rem 2rem;
       margin: 2rem 10rem;
-      //   padding-right: calc(15vw - 160px);
-      //   padding-left: calc(15vw - 160px);
-      //   // padding-bottom: 60px;
-      //   margin: 1rem 2rem;
-      //   margin-right: calc(30vw - 10px);
-      //   margin-left: calc(30vw - 10px);
     }
   }
 
@@ -84,12 +68,10 @@
       margin: 1rem 0rem 1rem;
       display: flex;
       flex-direction: column;
-      // border: 1px solid white;
 
       @include tablet {
         padding: 0rem 0.25rem;
         width: 33%;
-        // height: 10rem;
       }
 
       & h3 {
