@@ -12,9 +12,12 @@ https://github.com/neilbcruz/Backlog-Breaker-server
 
 ## Installation
 
-### `npm install`
+### 1. Clone both client and server repos
 
-Run `npm install` on both the client and the server side 
+git clone https://github.com/neilbcruz/Backlogger.git and 
+git clone https://github.com/neilbcruz/Backlogger-server.git
+
+
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
