@@ -10,10 +10,11 @@ Search for games and add to collection of you backlog games.
 
 https://github.com/neilbcruz/Backlog-Breaker-server
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### `npm install`
+
+Run `npm install` on both the client and the server side 
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
