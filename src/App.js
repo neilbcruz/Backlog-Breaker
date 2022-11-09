@@ -11,7 +11,7 @@ import RegisterPage from './components/RegisterPage/RegisterPage';
 import { useState, useEffect } from 'react';
 
 function App() {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
   const [isClicked, setIsClicked] = useState(false)
   
   const toggleTheme = () => {
@@ -36,10 +36,9 @@ function App() {
           <Route path='/' element={<HomePage theme={theme} />} />
           <Route path='/games' element={<VideoGamesPage theme={theme} />} />
           <Route path='/profile' element={<ProfilePage theme={theme} />} />
-          {/* <Route path='/hello' element={<GameDetails theme={theme} />} /> */}
-          <Route path='/games/:id' element={<GameProfile theme={theme} />} />
           <Route path='/login' element={<LoginPage theme={theme} />} />
           <Route path='/register' element={<RegisterPage theme={theme} />} />
+          <Route path='/profile/:id' element={<GameProfile theme={theme} />} />
         </Routes>
       </Router>
     </div>

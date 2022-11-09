@@ -9,14 +9,13 @@ import GameCard from '../../components/GameCard/GameCard';
 
 const apiKey = `7e7ac04c09504338812a93a4b141d292`
 
-export default function GameResult({ gameResults, theme }) {
+export default function GameResult({ gameResults, theme, loading }) {
   const { id } = useParams();
   // const [addGame, setAddGame] = useState([]);
   const [gameData, setGameData] = useState([]);
 
   const addGame = async (game) => {
     // event.preventDefault();
-    console.log(game)
     const {data: gameData} = await axios.get(`https://api.rawg.io/api/games/${game.id}?key=${apiKey}`)
 
     console.log(gameData)
@@ -44,6 +43,7 @@ export default function GameResult({ gameResults, theme }) {
       .post('http://localhost:8080/games/', gameObj)
       .then((resp) => {
         setGameData(resp.data)
+        console.log(resp.data)
         alert(`Added ${gameData.name}`)
       })
       .catch((err) => {
@@ -51,10 +51,7 @@ export default function GameResult({ gameResults, theme }) {
       })
   }
 
-  if (!gameResults) {
-    return <p>Loading...</p>;
-  }
-  return (
+  return ( loading ? <h1>Loading...</h1> : 
     <div className="results__top">
         {
           gameResults.map(game => (

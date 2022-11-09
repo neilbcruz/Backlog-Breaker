@@ -25,7 +25,49 @@
 }
 
 .profile {
-    padding: 1rem;
+    border: 1px solid white;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 5px rgba(202, 206, 214, 0.3);
+    padding: 0rem 1rem;
+    margin: 1rem;
+    text-align: center;
+    transition: all 0.5s;
+
+    &__top {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    @include tablet {
+        // margin: 1rem 10rem;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+        margin: 2rem;
+        // padding: 1rem 0rem;
+        // padding-right: calc(15vw - 100px);
+        // padding-left: calc(15vw - 100px);
+        // // padding-bottom: 60px;
+        // margin: 1rem 2rem;
+        // margin-right: calc(30vw - 100px);
+        // margin-left: calc(30vw - 100px);
+    }
+
+    @include desktop {
+        // margin: 1rem 10rem;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+        margin: 2rem 10rem;
+        //   padding-right: calc(15vw - 160px);
+        //   padding-left: calc(15vw - 160px);
+        //   // padding-bottom: 60px;
+        //   margin: 1rem 2rem;
+        //   margin-right: calc(30vw - 10px);
+        //   margin-left: calc(30vw - 10px);
+    }
 
     &__header {
         display: flex;
@@ -35,10 +77,38 @@
     }
 
     &__container {
-        border: 1px solid $sec-color-1;
-        border-radius: 1rem;
-        padding: 1rem;
-        margin-bottom: 0.5rem;
+        // border: 1px solid $sec-color-1;
+        // border-radius: 1rem;
+        // padding: 1rem;
+        // margin-bottom: 0.5rem;
+        width: 100%;
+        margin: 1rem 0rem 1rem;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid white;
+
+        @include tablet {
+            width: 32%;
+            // height: 10rem;
+        }
+
+        & h3 {
+            text-align: center;
+            background-color: $background-color-2;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        & img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+        }
+
+        & button {
+            cursor: pointer;
+        }
     }
 
     &__info {
@@ -64,9 +134,9 @@
             width: 100%;
         }
 
-        &-edit {
-            display: flex;
-            justify-content: space-between;
+        &-status {
+            text-align: center;
+            padding: 0rem 0rem 0.5rem;
         }
     }
 
@@ -109,6 +179,7 @@
             max-width: 500px;
             height: auto;
             left: 40%;
+            overflow: auto;
         }
 
         &-overlay {
@@ -126,6 +197,7 @@
     color: white;
     background-color: transparent;
 }
+
 .profile__modal.dark {
     background-color: transparent;
 }
@@ -142,4 +214,26 @@
         color: white;
         transition: 250ms background ease-in;
     }
+}
+
+.profile__container.light {
+    width: 100%;
+    margin: 1rem 0rem 1rem;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    @include tablet {
+        width: 32%;
+        // height: 10rem;
+    }
+}
+
+.results__container-text.light {
+    background-color: $support-color-1;
+    padding: 0rem;
+}
+
+.profile.light {
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }

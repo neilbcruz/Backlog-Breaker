@@ -1,0 +1,97 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.delete {
+    height: 262px;
+    width: auto;
+    padding: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: $sec-color-2;
+    justify-content: space-between;
+    border-radius: 3px;
+    box-shadow: 0px 2px 5px 0 rgba(19, 24, 44, 0.1);
+
+    @include tablet {
+        padding: 40px 64px;
+        height: 262px;
+        justify-content: space-between;
+    }
+
+
+    &__img {
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        top: 21px;
+        right: 21px;
+
+
+    }
+
+    &__content {
+
+        &-message {
+            padding-top: 1rem;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 1rem;
+        padding: 1rem;
+        justify-content: flex-end;
+
+        &-cancel {
+            color: white;
+            background-color: transparent;
+            border: none;
+
+        }
+
+        &-delete {
+            border: 1px solid #BDC5D5;
+            // background-color: white;
+
+            &:hover,
+            &:focus {
+                background: white;
+                color: black;
+                transition: 250ms background ease-in;
+            }
+        }
+
+        & button {
+            cursor: pointer;
+        }
+    }
+}
+
+.delete.light {
+    background-color: $prim-color-2;
+}
+
+.delete__buttons-cancel.light {
+    color: #13182C;
+    border: none;
+}
+
+.delete__buttons-delete.light {
+    color: #13182C;
+    border: 1px solid black;
+
+    &:hover,
+            &:focus {
+                background: black;
+                color: white;
+                transition: 250ms background ease-in;
+            }
+}

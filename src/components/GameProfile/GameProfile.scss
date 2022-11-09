@@ -8,26 +8,172 @@
     box-sizing: border-box;
 }
 
-.upload {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0rem 1rem;
+.gameprofile {
+    border: 1px solid white;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 5px rgba(202, 206, 214, 0.3);
+    padding: 1rem;
+    margin: 1rem;
+    transition: all 0.5s;
 
-    &__image {
-        max-width: 100px;
-        max-height: 100px;
-        border: 2px solid $sec-color-1;
-        border-radius: 3rem;
+    @include tablet {
+        // margin: 1rem 10rem;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+        margin: 2rem;
+        // padding: 1rem 0rem;
+        // padding-right: calc(15vw - 100px);
+        // padding-left: calc(15vw - 100px);
+        // // padding-bottom: 60px;
+        // margin: 1rem 2rem;
+        // margin-right: calc(30vw - 100px);
+        // margin-left: calc(30vw - 100px);
     }
 
-    & label {
+    @include desktop {
+        // margin: 1rem 10rem;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+        margin: 2rem 10rem;
+        //   padding-right: calc(15vw - 160px);
+        //   padding-left: calc(15vw - 160px);
+        //   // padding-bottom: 60px;
+        //   margin: 1rem 2rem;
+        //   margin-right: calc(30vw - 10px);
+        //   margin-left: calc(30vw - 10px);
+    }
+
+    &__name {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        & img {
+            width: 60px;
+        }
+    }
+
+    &__status {
+        display: flex;
+        gap: 0.25rem;
+    }
+
+    &__info {
+        display: flex;
+        padding: 1rem 0rem;
+
+        & img {
+            width: auto;
+            max-width: 10rem;
+            // height: 5rem;
+            border-radius: 0.25rem;
+            object-fit: cover;
+            // &:hover {
+            //     -webkit-transform:scale(1.5); /* or some other value */
+            //     transform:scale(1.5);
+            // }
+        }
+
+        &-more {
+            padding: 0rem 1rem;
+        }
+    }
+
+    &__button {
+        display: flex;
+        padding: 0rem 0rem 1rem;
+        justify-content: space-between;
+
+        @include tablet {
+            gap: 1rem;
+        }
+
+        @include desktop {
+            gap: 5rem;
+        }
+    }
+
+    & button {
         cursor: pointer;
-    }
-
-    & input {
         width: 100%;
-        overflow: hidden;
     }
 
+    &__modal {
+        width: 80vw;
+        max-width: 500px;
+        height: auto;
+        top: 45%;
+        left: 35%;
+        right: auto;
+        bottom: auto;
+        margin-right: -50%;
+        transform: translate(-30%, -40%);
+        padding: 0;
+        position: absolute;
+        border-radius: 2rem;
+        border: none;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        @include tablet {
+            width: 100vw;
+            left: 40%;
+            overflow: auto;
+        }
+
+        &-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+    }
+
+    &__other {
+        display: flex;
+        padding: 1rem 0rem 1rem;
+        justify-content: space-between;
+        
+
+        @include tablet {
+            padding: 1rem 6rem 1rem;
+        }
+
+        &-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &-text {
+            margin-top: 1rem;
+
+        }
+
+        & img {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 6.25rem;
+            object-fit: cover;
+            // object-position: 0rem;
+            background: #E1E1E1;
+            margin: 0.5rem;
+            // border: 1px solid $sec-color-3;
+            cursor: pointer;
+        }
+
+    }
+}
+
+.gameprofile.light {
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }

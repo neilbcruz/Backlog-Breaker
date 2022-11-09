@@ -1,18 +1,17 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import './ProfilePage.scss';
-import { NavLink } from "react-router-dom";
-import LoginPage from '../../components/LoginPage/LoginPage';
-import Modal from "react-modal";
-import GameProfile from '../../components/GameProfile/GameProfile';
+import { useParams, NavLink } from "react-router-dom";
+import ActiveStatus from '../../components/ActiveStatus/ActiveStatus';
+import FinishStatus from '../../components/FinishStatus/FinishStatus';
 
 
 const gamesUrl = 'http://localhost:8080/games/'
-const profileUrl = 'http://localhost:8080/profile'
+const userUrl = 'http://localhost:8080/user/'
 
 export default function Profile({ theme }) {
   const [game, setGame] = useState([]);
-  const [selectedGame, setSelectedGame] = useState(null)
+  // const [selectedGame, setSelectedGame] = useState(null)
   const [isLoading, setIsLoading] = useState(true);
   const [userInfo, setUserInfo] = useState({});
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(
@@ -31,7 +30,7 @@ export default function Profile({ theme }) {
       return;
     }
 
-    axios.get(profileUrl, {
+    axios.get(userUrl, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -59,72 +58,22 @@ export default function Profile({ theme }) {
       })
   }, [])
 
-  const activeStatus = async (games, id) => {
-    console.log(games)
+  // function selectAnOpenModal(game) {
+  // setSelectedGame(game)
+  //   setIsOpen(true)
+  // }
 
-    const toActive = {
-      id: games.id,
-      name: games.name,
-      background_image: games.background_image,
-      status: "active"
-    }
+  // // Modal Functions //
+  // const [modalIsOpen, setIsOpen] = useState(false);
 
-    axios
-      .put(`${gamesUrl}${id}`, toActive)
-      .then((toActive) => {
-        console.log(toActive);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-    reload()
-  }
+  // // const navigate = useNavigate();
 
-  const finishStatus = async (games, id) => {
-    console.log(games)
-
-    const toFinish = {
-      id: games.id,
-      name: games.name,
-      background_image: games.background_image,
-      status: "finished"
-    }
-
-    axios
-      .put(`http://localhost:8080/games/${id}`, toFinish)
-      .then((toFinish) => {
-        console.log(toFinish);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-    reload()
-  }
-
-  const handleDelete = async (games, id) => {
-    axios.delete(`http://localhost:8080/games/${id}`)
-    // closeModal()
-    // alert('Game deleted');
-    // navigate('/profile')
-    reload()
-  }
-
-  function selectAnOpenModal(game) {
-    setSelectedGame(game)
-    setIsOpen(true)
-  }
-
-  // Modal Functions //
-  const [modalIsOpen, setIsOpen] = useState(false);
-
-  // const navigate = useNavigate();
-
-  function closeModal() {
-    setIsOpen(false);
-    // navigate('/games')
-  }
-  // console.log(gameResults)
-  Modal.setAppElement('body');
+  // function closeModal() {
+  //   setIsOpen(false);
+  //   // navigate('/games')
+  // }
+  // // console.log(gameResults)
+  // Modal.setAppElement('body');
 
   return (!!isUserLoggedIn ?
     <div className='message'>
@@ -139,39 +88,37 @@ export default function Profile({ theme }) {
       </div>
     </div>
     :
-    <header className='profile'>
+    <header className={`profile ${theme}`}>
       <div className='profile__header'>
         <h1 className='profile__header-name'>{userInfo.name}</h1>
         <div className='profile__logout'>
           {isUserLoggedIn ? <></> : <button className={`profile__logout-text ${theme}`} onClick={logOut}>Log Out</button>}
         </div>
       </div>
-      {
-        game
-          .sort((a, b) => a.status > b.status ? 1 : -1)
-          .map((games) => {
-            return (
-              <div className={`profile__container ${theme}`} key={games.id}>
-                <div className='profile__title'>
-                  <h2>{games.name}</h2>
-                </div>
-                <div className='profile__info'>
+      <div className={'profile__top'} >
+        {
+          game
+            .sort((a, b) => a.status > b.status ? 1 : -1)
+            .map((games) => {
+              return (
+
+                <div className={`profile__container ${theme}`} key={games.id}>
+                  <h3 className={`results__container-text ${theme}`}>{games.name}</h3>
                   <img src={games.background_image} />
                   <div className='profile__info-more'>
-                    <p className='profile__info-status'>Status: {games.status}</p>
-                    <div className='profile__info-edit'>
-                      <button onClick={() => activeStatus(games, games.id)} className={`profile__info-active ${theme}`}>Active</button>
-                      <button onClick={() => finishStatus(games, games.id)} className={`profile__info-active ${theme}`}>Finish</button>
-                      <button onClick={() => handleDelete(games, games.id)} className={`profile__info-active ${theme}`}>Delete</button>
+                    <div className='profile__info-status'>
+                      {games.status === 'active' ? <ActiveStatus /> : <FinishStatus />}
                     </div>
-                    <button onClick={() => selectAnOpenModal(games)}>Info</button>
+                    <NavLink to={`/profile/${games.id}`} games={games}>
+                      <button className={`profile__nav-text ${theme}`}>Game Info</button>
+                    </NavLink>
                   </div>
                 </div>
-              </div>
-            )
-          })
-      }
-      <div>
+              )
+            })
+        }
+      </div>
+      {/* <div>
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
@@ -183,7 +130,7 @@ export default function Profile({ theme }) {
             closeModal={closeModal}
           />}
         </Modal>
-      </div>
+      </div> */}
     </header>
 
   );

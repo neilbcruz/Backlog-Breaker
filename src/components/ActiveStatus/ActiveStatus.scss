@@ -1,0 +1,28 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.active__status{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-text {
+        background-color: rgba(2021,69,21,0.07);
+        color: $support-color-2;
+        border: none;
+        border-radius: 20px;
+        width: 4.925rem;
+        font-size: 1rem;
+        color: red;
+        font-weight: 600;
+        margin-left: 0.25rem;
+    }
+
+}

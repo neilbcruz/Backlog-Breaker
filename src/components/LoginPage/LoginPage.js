@@ -10,7 +10,9 @@ const registerUrl = `${baseUrl}/register`;
 
 export default function LoginPage({ theme }) {
   const [isRegistered, setisRegistered] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(!!sessionStorage.bearerToken);
+
+
   const [isLoginError, setIsLoginError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
@@ -47,19 +49,6 @@ export default function LoginPage({ theme }) {
         setIsLoginError(true);
         setErrorMessage(error.response.data.error.message);
       });
-
-
-    const validForm = () => {
-      if (e.target.username.value === '' || e.target.password.value === '') {
-        return false;
-      }
-      return true;
-    }
-
-    if (!validForm()) {
-      alert('Please fill out the login form')
-      window.location.reload()
-    }
   };
 
   // const renderRegister = () => (
@@ -107,7 +96,7 @@ export default function LoginPage({ theme }) {
   return (
     <div className={`login ${theme}`}>
       <h2 className='login__text'>Login</h2>
-      {isLoginError && <label style={{ color: "red" }}>{errorMessage}</label>}
+      {isLoginError && <label className='login__error' style={{ color: "red" }}>{errorMessage}</label>}
       <form className='login__form' onSubmit={handleLogin}>
         <input
           type="text"

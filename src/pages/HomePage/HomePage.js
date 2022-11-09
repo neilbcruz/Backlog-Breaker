@@ -51,12 +51,12 @@ export default function HomePage({ theme }) {
 
   return (
     <div className={`home ${theme}`}>
-      <div className='home__header'>
+      <div className={`home__header ${theme}`}>
         <h1 className='home__header-text'>Welcome to Backlogger!</h1>
         <p>You can search for games and keep it in your library!</p>
         <p>Keep track of your games so you know their status!</p>
       </div>
-      <div className='home__header'>
+      <div className={`home__header ${theme}`}>
         <h1 className='home__header-text'>Get Started!</h1>
         <div className='home__start'>
           <p>Log In to get started: </p>
@@ -71,7 +71,7 @@ export default function HomePage({ theme }) {
           </NavLink>
         </div>
       </div>
-      <div className='home__header'>
+      <div className={`home__header ${theme}`}>
         <h1>Pick A Game!</h1>
         <div className='home__start'>
           <p>Search for specific games by clicking here: </p>
@@ -79,7 +79,7 @@ export default function HomePage({ theme }) {
             <button className={`home__start-text p-small ${theme}`}>Search</button>
           </NavLink>
         </div>
-        <p>Or choose from must play games:</p>
+        <p>Or quickly choose from must play games:</p>
         <div className='home__top'>
           {
             games.map(game => (

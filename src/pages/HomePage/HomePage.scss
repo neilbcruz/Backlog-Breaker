@@ -110,6 +110,11 @@
   }
 }
 
+.home__header.light {
+  border: 1px solid black;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
 .home__top-text.light {
   background-color: $support-color-1;
 }

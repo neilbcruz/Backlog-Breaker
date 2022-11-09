@@ -22,22 +22,18 @@ export default function VideoGamesPage({ theme }) {
     fetch(`https://rawg.io/api/games?key=${apiKey}&search=${game}`)
       .then(resp => resp.json())    
       .then(({ results }) => {
-        setLoading(true)
+        setLoading(false)
         results === undefined ? alert('no games found') : setGameResults(results)
       })
       .catch((err) => {
         console.log(err)
-        setLoading(false)
+        setLoading(true)
       })
     setSearchGame("")
   }
-
-  if (!gameResults) {
-    return <p> Loading... </p>;
-  }
-
-  return (
-    <div className="search">
+  
+  return ( 
+    <div className={`search ${theme}`}>
       <form className='search__form' onSubmit={onSubmit}>
         <label className='search__label' htmlFor='search'>Search</label>
         <input
@@ -48,7 +44,7 @@ export default function VideoGamesPage({ theme }) {
           onChange={handleChange} />
         <button className='search__button' type='submit'>Submit</button>
       </form>
-      <GameResults gameResults={gameResults} theme={theme} />
+      <GameResults gameResults={gameResults} theme={theme} loading={loading} />
     </div>
   );
 }
