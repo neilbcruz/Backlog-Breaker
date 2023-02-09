@@ -18,9 +18,9 @@ export default function PageHeader({ theme, toggleTheme, isClicked }) {
         </div>
       </div>
       <div className='header__title'>
-        <NavLink to='/'>
+        {/* <NavLink to='/'>
           <img className='header__title-logo' src={Logo} alt='BGT Logo' />
-        </NavLink>
+        </NavLink> */}
         <NavLink to='/'>
           <h1 className='header__title-text'>Backlogger</h1>
         </NavLink>
