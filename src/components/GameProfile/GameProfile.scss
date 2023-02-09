@@ -9,26 +9,33 @@
 }
 
 .gameprofile {
-    border: 1px solid white;
-    border-radius: 1rem;
-    box-shadow: 5px 5px 5px rgba(202, 206, 214, 0.3);
-    padding: 1rem;
-    margin: 1rem;
-    transition: all 0.5s;
+    background-image: url(../../assets/background/hexagon_white.jpg);
+    background-size: cover;
 
-    @include tablet {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 1rem 2rem;
-        margin: 2rem;
+    &__box {
+        border-top: 1px solid white;
+        // border-radius: 1rem;
+        box-shadow: 5px 5px 5px rgba(202, 206, 214, 0.05);
+        padding: 1rem;
+        margin: 0rem 1rem;
+        transition: all 0.5s;
+    
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            margin: 0rem 2rem;
+        }
+    
+        @include desktop {
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            margin: 0rem 10rem;
+        }
     }
 
-    @include desktop {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 1rem 2rem;
-        margin: 2rem 10rem;
-    }
+
 
     &__name {
         display: flex;
@@ -78,6 +85,13 @@
     & button {
         cursor: pointer;
         width: 100%;
+
+        &:hover,
+        &:focus {
+            background: white;
+            color: black;
+            // transition: 250ms background ease-in;
+        }
     }
 
     &__modal {
@@ -147,7 +161,21 @@
     }
 }
 
-.gameprofile.light {
-    border: 1px solid black;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+.gameprofile__box.light {
+    border-top: 1px solid black;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+button.gameprofile__button-active.light {
+    &:hover,
+    &:focus {
+      background: black;
+      color: white;
+      // transition: 250ms background ease-in;
+    }
+  }
+
+  .gameprofile.dark {
+    background-image: url(../../assets/background/hexagon_black.png);
+    background-size: auto;
 }

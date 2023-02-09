@@ -117,57 +117,58 @@ export default function GameProfile({ theme }) {
   return (
     <>
       <div className={`gameprofile ${theme}`} >
-        <div className='gameprofile__name' key={game.id}>
-          <h1>{game.name}</h1>
-          <div className='gameprofile__status'>
-            <h3 className='profile__info-status'>
-              {game.status === 'active' ? <ActiveStatus /> : <FinishStatus />}
-            </h3>
+        <div className={`gameprofile__box ${theme}`}>
+          <div className='gameprofile__name' key={game.id}>
+            <h1>{game.name}</h1>
+            <div className='gameprofile__status'>
+              <h3 className='profile__info-status'>
+                {game.status === 'active' ? <ActiveStatus /> : <FinishStatus />}
+              </h3>
+            </div>
           </div>
-        </div>
-        <div className='gameprofile__info'>
-          <img src={game.background_image} />
-          <div className='gameprofile__info-more'>
-            <p><strong>Released:</strong> {game.released}</p>
-            <p><strong>Rating:</strong> {game.rating}</p>
-            <p><strong>Genre(s):</strong></p>
-            {
-              game.genres?.map(g => `${g.name} | `)
-            }
-            <p><strong>Platform(s):</strong></p>
-            {
-              game.platforms?.map(p => `${p.platform.name} | `)
-            }
+          <div className='gameprofile__info'>
+            <img src={game.background_image} alt='Game background' />
+            <div className='gameprofile__info-more'>
+              <p><strong>Released:</strong> {game.released}</p>
+              <p><strong>Rating:</strong> {game.rating}</p>
+              <p><strong>Genre(s):</strong></p>
+              {
+                game.genres?.map(g => `${g.name} | `)
+              }
+              <p><strong>Platform(s):</strong></p>
+              {
+                game.platforms?.map(p => `${p.platform.name} | `)
+              }
+            </div>
           </div>
-        </div>
-        <div className='gameprofile__button'>
-          <button onClick={() => activeStatus(game, game.id)} className={`gameprofile__button-active ${theme}`}>Active</button>
-          <button onClick={() => finishStatus(game, game.id)} className={`gameprofile__button-active ${theme}`}>Finish</button>
-          <button
-            onClick={() => selectAnOpenModal(game)}
-            className={`gameprofile__info-active ${theme}`}>Delete</button>
-        </div>
-        <p>{game.description_raw}</p>
-        <div className='gameprofile__other'>
-          <div className='gameprofile__other-link'>
-            <h3>Website</h3>
-            {game.website === '' ? <p className='gameprofile__other-text'>n/a</p> :
-              <img onClick={() => newTab(game.website)} src={game.background_image} />
-            }
+          <div className='gameprofile__button'>
+            <button onClick={() => activeStatus(game, game.id)} className={`gameprofile__button-active ${theme}`}>Active</button>
+            <button onClick={() => finishStatus(game, game.id)} className={`gameprofile__button-active ${theme}`}>Finish</button>
+            <button
+              onClick={() => selectAnOpenModal(game)}
+              className={`gameprofile__button-active ${theme}`}>Delete</button>
           </div>
-          <div className='gameprofile__other-link'>
-            <h3>Reddit</h3>
-            {game.reddit_url === '' ? <p className='gameprofile__other-text'>n/a</p> :
-              <img onClick={() => newTab(game.reddit_url)} src={RedditLogo} />
-            }
+          <p>{game.description_raw}</p>
+          <div className='gameprofile__other'>
+            <div className='gameprofile__other-link'>
+              <h3>Website</h3>
+              {game.website === '' ? <p className='gameprofile__other-text'>n/a</p> :
+                <img onClick={() => newTab(game.website)} src={game.background_image} alt='Game Backround' />
+              }
+            </div>
+            <div className='gameprofile__other-link'>
+              <h3>Reddit</h3>
+              {game.reddit_url === '' ? <p className='gameprofile__other-text'>n/a</p> :
+                <img onClick={() => newTab(game.reddit_url)} src={RedditLogo} alt='Reddit logo look like rabbit' />
+              }
+            </div>
+            <div className='gameprofile__other-link'>
+              <h3>Metacritic</h3>
+              {game.metacritic_url === '' ? <p className='gameprofile__other-text'>n/a</p> :
+                <img onClick={() => newTab(game.metacritic_url)} src={MetacriticLogo} alt='Metacritic circle with M' />
+              }
+            </div>
           </div>
-          <div className='gameprofile__other-link'>
-            <h3>Metacritic</h3>
-            {game.metacritic_url === '' ? <p className='gameprofile__other-text'>n/a</p> :
-              <img onClick={() => newTab(game.metacritic_url)} src={MetacriticLogo} />
-            }
-          </div>
-
         </div>
       </div>
 

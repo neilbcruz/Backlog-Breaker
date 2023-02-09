@@ -3,7 +3,7 @@
 @use "./typography" as *;
 
 * {
-    font-family: "Quicksand", sans-serif;
+    font-family: "Calibri";
     // color: $prim-color-1;
 }
 
@@ -33,22 +33,22 @@ h3,
 link,
 button,
 .label {
-    font-size: 0.8125rem;
+    font-size: 1rem;
     line-height: 1.25rem;
     font-weight: 600;
 
     @include tablet {
-        font-size: 0.875rem;
+        font-size: 1rem;
         line-height: 1.125rem;
     }
 }
 
 h4 {
-    font-size: 0.6875rem;
+    font-size: 0.8rem;
     line-height: 1rem;
 
     @include tablet {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         line-height: 1.125rem;
     }
 }

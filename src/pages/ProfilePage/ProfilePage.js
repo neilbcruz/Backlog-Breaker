@@ -71,34 +71,36 @@ export default function Profile({ theme }) {
     </div>
     :
     <header className={`profile ${theme}`}>
-      <div className='profile__header'>
-        <h1 className='profile__header-name'>{userInfo.name}</h1>
-        <div className='profile__logout'>
-          {isUserLoggedIn ? <></> : <button className={`profile__logout-text ${theme}`} onClick={logOut}>Log Out</button>}
+      <div className={`profile__box ${theme}`}>
+        <div className='profile__header'>
+          <h1 className='profile__header-name'>{userInfo.name}</h1>
+          <div className='profile__logout'>
+            {isUserLoggedIn ? <></> : <button className={`profile__logout-text ${theme}`} onClick={logOut}>Log Out</button>}
+          </div>
         </div>
-      </div>
-      <div className={'profile__top'} >
-        {
-          game
-            .sort((a, b) => a.status > b.status ? 1 : -1)
-            .map((games) => {
-              return (
+        <div className={'profile__top'} >
+          {
+            game
+              .sort((a, b) => a.status > b.status ? 1 : -1)
+              .map((games) => {
+                return (
 
-                <div className={`profile__container ${theme}`} key={games.id}>
-                  <h3 className={`results__container-text ${theme}`}>{games.name}</h3>
-                  <img src={games.background_image} />
-                  <div className='profile__info-more'>
-                    <div className='profile__info-status'>
-                      {games.status === 'active' ? <ActiveStatus /> : <FinishStatus />}
+                  <div className={`profile__container ${theme}`} key={games.id}>
+                    <h3 className={`results__container-text ${theme}`}>{games.name}</h3>
+                    <img src={games.background_image} />
+                    <div className='profile__info-more'>
+                      <div className='profile__info-status'>
+                        {games.status === 'active' ? <ActiveStatus /> : <FinishStatus />}
+                      </div>
+                      <NavLink to={`/profile/${games.id}`} games={games}>
+                        <button className={`profile__nav-text ${theme}`}>Game Info</button>
+                      </NavLink>
                     </div>
-                    <NavLink to={`/profile/${games.id}`} games={games}>
-                      <button className={`profile__nav-text ${theme}`}>Game Info</button>
-                    </NavLink>
                   </div>
-                </div>
-              )
-            })
-        }
+                )
+              })
+          }
+        </div>
       </div>
     </header>
   );

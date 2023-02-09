@@ -9,28 +9,34 @@
 }
 
 .search {
-    border: 1px solid white;
-    border-radius: 1rem;
-    box-shadow: 5px 5px 5px rgba(202, 206, 214, 0.3);
-    padding: 1rem;
-    margin: 1rem;
-    text-align: center;
-    transition: all 0.5s;
+    background-image: url(../../assets/background/hexagon_white.jpg);
+    background-size: cover;
 
-    @include tablet {
-        // margin: 1rem 10rem;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 1rem 2rem;
-        margin: 2rem;
+    &__box {
+        border-top: 1px solid white;
+        // border-radius: 1rem;
+        box-shadow: 5px 5px 5px rgba(202, 206, 214, 0.05);
+        padding: 1rem;
+        margin: 0rem 1rem;
+        text-align: center;
+        // transition: all 0.5s;\
+
+        @include tablet {
+            // margin: 1rem 10rem;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            margin: 0rem 2rem;
+        }
+
+        @include desktop {
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            margin: 0rem 10rem;
+        }
     }
 
-    @include desktop {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 1rem 2rem;
-        margin: 2rem 10rem;
-    }
 
     &__form {
         display: flex;
@@ -75,11 +81,16 @@
     &:focus {
         background: white;
         color: black;
-        transition: 250ms background ease-in;
+        // transition: 250ms background ease-in;
     }
 }
 
-.search.light {
-    border: 1px solid black;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+.search__box.light {
+    border-top: 1px solid black;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
+}
+
+.search.dark {
+    background-image: url(../../assets/background/hexagon_black.png);
+    background-size: auto;
 }

@@ -11,7 +11,8 @@
 .dark {
     background-color: #000814;
     color: $prim-color-2;
-    transition: all 0.5s;
+    // transition: all 0.5s;
+    
 
     & input {
         color: $sec-color-1;
@@ -21,7 +22,7 @@
 .light {
     background-color: #fff;
     color: $sec-color-1;
-    transition: all 0.5s;
+    // transition: all 0.5s;
 
     & input {
         color: $sec-color-1;
@@ -33,6 +34,8 @@
     align-items: center;
     flex-direction: column;
     padding: 0rem 1rem 1rem;
+    background-image: url(../../assets/background/hexagon_white.jpg);
+    background-size: auto;
 
     &__top {
         display: flex;
@@ -77,4 +80,9 @@
             cursor: pointer;
         }
     }
+}
+
+.header.dark {
+    background-image: url(../../assets/background/hexagon_black.png);
+    background-size: auto;
 }

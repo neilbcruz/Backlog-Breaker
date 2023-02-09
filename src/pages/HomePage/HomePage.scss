@@ -9,26 +9,29 @@
 }
 
 .home {
+  background-image: url(../../assets/background/hexagon_white.jpg);
+  background-size:cover;
+
   &__header {
-    border: 1px solid white;
-    border-radius: 1rem;
-    box-shadow: 5px 5px 5px rgba(202, 206, 214, 0.3);
+    border-top: 1px solid white;
+    // border-radius: 1rem;
+    box-shadow: 5px 5px 5px rgba(202, 206, 214, 0.05);
     padding: 1rem;
-    margin: 1rem;
+    margin: 0rem 1rem;
     text-align: center;
 
     @include tablet {
       flex-direction: row;
       justify-content: space-between;
       padding: 1rem 2rem;
-      margin: 2rem;
+      margin: 0rem 2rem;
     }
 
     @include desktop {
       flex-direction: row;
       justify-content: space-between;
       padding: 1rem 2rem;
-      margin: 2rem 10rem;
+      margin: 0rem 10rem;
     }
   }
 
@@ -46,7 +49,7 @@
       &:focus {
         background: white;
         color: black;
-        transition: 250ms background ease-in;
+        // transition: 250ms background ease-in;
       }
     }
   }
@@ -93,8 +96,8 @@
 }
 
 .home__header.light {
-  border: 1px solid black;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  border-top: 1px solid black;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
 }
 
 .home__top-text.light {
@@ -106,6 +109,11 @@
   &:focus {
     background: black;
     color: white;
-    transition: 250ms background ease-in;
+    // transition: 250ms background ease-in;
   }
+}
+
+.home.dark {
+  background-image: url(../../assets/background/hexagon_black.png);
+    background-size: auto;
 }

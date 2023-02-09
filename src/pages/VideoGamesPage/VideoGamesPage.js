@@ -20,7 +20,7 @@ export default function VideoGamesPage({ theme }) {
 
     setGameResults([])
     fetch(`https://rawg.io/api/games?key=${apiKey}&search=${game}`)
-      .then(resp => resp.json())    
+      .then(resp => resp.json())
       .then(({ results }) => {
         setLoading(false)
         results === undefined ? alert('no games found') : setGameResults(results)
@@ -31,20 +31,22 @@ export default function VideoGamesPage({ theme }) {
       })
     setSearchGame("")
   }
-  
-  return ( 
+
+  return (
     <div className={`search ${theme}`}>
-      <form className='search__form' onSubmit={onSubmit}>
-        <label className='search__label' htmlFor='search'>Search</label>
-        <input
-          className={`search__input ${theme}`}
-          type="text"
-          name='search'
-          value={searchGame}
-          onChange={handleChange} />
-        <button className='search__button' type='submit'>Submit</button>
-      </form>
-      <GameResults gameResults={gameResults} theme={theme} loading={loading} />
+      <div className={`search__box ${theme}`}>
+        <form className='search__form' onSubmit={onSubmit}>
+          <label className='search__label' htmlFor='search'>Search</label>
+          <input
+            className={`search__input ${theme}`}
+            type="text"
+            name='search'
+            value={searchGame}
+            onChange={handleChange} />
+          <button className='search__button' type='submit'>Submit</button>
+        </form>
+        <GameResults gameResults={gameResults} theme={theme} loading={loading} />
+      </div>
     </div>
   );
 }

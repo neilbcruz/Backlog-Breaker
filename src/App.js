@@ -10,7 +10,7 @@ import RegisterPage from './components/RegisterPage/RegisterPage';
 import { useState, useEffect } from 'react';
 
 function App() {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
   const [isClicked, setIsClicked] = useState(false)
   
   const toggleTheme = () => {
